@@ -33,3 +33,9 @@ body{
     font-family: arial;
     font-size: small;
 }
+#messagesContainer{
+    height: 86vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}

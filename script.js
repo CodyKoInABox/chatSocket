@@ -2,7 +2,7 @@ const socket = io('https://chatsocketbackend.onrender.com')
 
 const messageForm = document.getElementById('messageForm')
 const messageInput = document.getElementById('messageInput')
-const messageContainer = document.getElementById('messagesContainer')
+const messageContainer = document.getElementById('messages')
 
 const username = prompt("Please choose an username:")
 document.getElementById('extraInfoUsername').innerHTML = 'Username: <b>'+ username +'</b></p>'
