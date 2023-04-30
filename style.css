@@ -36,6 +36,7 @@ body{
 #messagesContainer{
     height: 86vh;
     overflow-y: auto;
+    overflow-wrap: break-word;
     display: flex;
     flex-direction: column-reverse;
 }
