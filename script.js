@@ -41,11 +41,11 @@ messageForm.addEventListener('submit', e =>{
 //create a new message element on the UI
 function appendMessage(message){
     const messageElement = document.createElement('div')
-    messageElement.innerHTML = message
+    messageElement.innerText = message
     messageContainer.append(messageElement)
 }
 
 //update amount of users connected
 function updateUserAmount(amount){
-    document.getElementById('extraInfoUserAmount').innerHTML = '<b>' + amount + '</b> users connected'
+    document.getElementById('extraInfoUserAmount').innerText = '<b>' + amount + '</b> users connected'
 }
