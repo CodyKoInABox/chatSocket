@@ -5,6 +5,7 @@ const messageInput = document.getElementById('messageInput')
 const messageContainer = document.getElementById('messagesContainer')
 
 const username = prompt("Please choose an username:")
+document.getElementById('extraInfoUsername').innerHTML = 'Username: <b>'+ username +'</b></p>'
 socket.emit('newUser', username)
 
 //new chat message
@@ -39,12 +40,7 @@ function appendMessage(message){
     messageContainer.append(messageElement)
 }
 
-
-
-
 //update amount of users connected
-
 function updateUserAmount(amount){
-    console.log('There are ' + amount + ' users connected')
     document.getElementById('extraInfoUserAmount').innerHTML = '<b>' + amount + '</b> users connected'
 }
