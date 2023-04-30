@@ -10,25 +10,25 @@ socket.emit('newUser', username)
 
 //new chat message
 socket.on('chatMessage', data =>{
-    appendMessage(`${data.username}: ${data.message}`)
+    appendMessage(`<b>${data.username}:</b> ${data.message}`)
 })
 
 //new user has connected
 socket.on('userConnected', data =>{
-    appendMessage(`${data.username} has connected.`)
+    appendMessage(`<b>${data.username}</b> has connected.`)
     updateUserAmount(data.userCount)
 })
 
 //user has disconnected
 socket.on('userDisconnected', username =>{
-    appendMessage(`${username} has disconnected.`)
+    appendMessage(`<b>${username}</b> has disconnected.`)
 })
 
 //handle form submission
 messageForm.addEventListener('submit', e =>{
     e.preventDefault()
     const message = messageInput.value
-    appendMessage(`You: ${message}`)
+    appendMessage(`<b>You:</b> ${message}`)
     socket.emit('sendChatMessage', message)
     messageInput.value = ''
 })
@@ -36,7 +36,7 @@ messageForm.addEventListener('submit', e =>{
 //create a new message element on the UI
 function appendMessage(message){
     const messageElement = document.createElement('div')
-    messageElement.innerText = message
+    messageElement.innerHTML = message
     messageContainer.append(messageElement)
 }
 
