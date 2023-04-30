@@ -8,6 +8,8 @@ const username = prompt("Please choose an username:")
 document.getElementById('extraInfoUsername').innerHTML = 'Username: <b>'+ username +'</b></p>'
 socket.emit('newUser', username)
 
+let userAmount;
+
 //new chat message
 socket.on('chatMessage', data =>{
     appendMessage(`<b>${data.username}:</b> ${data.message}`)
@@ -17,11 +19,14 @@ socket.on('chatMessage', data =>{
 socket.on('userConnected', data =>{
     appendMessage(`<b>${data.username}</b> has connected.`)
     updateUserAmount(data.userCount)
+    userAmount = data.userCount
 })
 
 //user has disconnected
 socket.on('userDisconnected', username =>{
     appendMessage(`<b>${username}</b> has disconnected.`)
+    updateUserAmount(userAmount - 1)
+    userAmount--
 })
 
 //handle form submission
