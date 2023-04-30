@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App | Socket.io</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="messagesContainer">
-        <form class="inputContainer">
-            <input class="messageInput" type="text"> <button type="submit" class="sendButton">Send</button>
+    <div class="container">
+        <div id="messagesContainer">
+
+        </div>
+        <form class="inputContainer" id="messageForm">
+            <input id="messageInput" class="messageInput" type="text">
+            <button type="submit" class="sendButton">Send</button>
         </form>
     </div>
 </body>
