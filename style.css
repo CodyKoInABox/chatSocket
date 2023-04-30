@@ -23,3 +23,13 @@ body{
     padding: 0px;
     width: 100%;
 }
+.extraInfoContainer{
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3vh;
+    display: flex;
+    justify-content: space-between;
+    font-family: arial;
+    font-size: small;
+}

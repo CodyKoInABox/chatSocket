@@ -5,19 +5,17 @@ const messageInput = document.getElementById('messageInput')
 const messageContainer = document.getElementById('messagesContainer')
 
 const username = prompt("Please choose an username:")
-appendMessage('You have connected.')
 socket.emit('newUser', username)
 
 //new chat message
 socket.on('chatMessage', data =>{
-    console.log(data)
     appendMessage(`${data.username}: ${data.message}`)
 })
 
 //new user has connected
-socket.on('userConnected', username =>{
-    console.log(username)
-    appendMessage(`${username} has connected.`)
+socket.on('userConnected', data =>{
+    appendMessage(`${data.username} has connected.`)
+    updateUserAmount(data.userCount)
 })
 
 //user has disconnected
@@ -39,4 +37,14 @@ function appendMessage(message){
     const messageElement = document.createElement('div')
     messageElement.innerText = message
     messageContainer.append(messageElement)
+}
+
+
+
+
+//update amount of users connected
+
+function updateUserAmount(amount){
+    console.log('There are ' + amount + ' users connected')
+    document.getElementById('extraInfoUserAmount').innerHTML = '<b>' + amount + '</b> users connected'
 }
